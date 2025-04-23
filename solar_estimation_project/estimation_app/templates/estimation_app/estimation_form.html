@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar Potential Estimation</title>
+</head>
+<body>
+    <h1>Solar Power Potential Estimation Tool</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="latitude">Latitude:</label>
+            <input type="number" id="latitude" name="latitude" step="any" required>
+        </div>
+        <div>
+            <label for="longitude">Longitude:</label>
+            <input type="number" id="longitude" name="longitude" step="any" required>
+        </div>
+        <div>
+            <label for="month">Month (1-12):</label>
+            <input type="number" id="month" name="month" min="1" max="12" required>
+        </div>
+        <button type="submit">Estimate Potential</button>
+    </form>
+
+    <div id="predictionResult">
+        </div>
+
+</body>
+</html>
