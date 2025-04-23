@@ -64,7 +64,7 @@ Our current prototype demonstrates the core functionality:
 
  **Install Dependencies:**
     ```bash
-    pip install pandas numpy scikit-learn joblib [your chosen interface framework, e.g., Django]
+    pip install pandas numpy scikit-learn joblib and Used Frame works
     ```
 4.  **Obtain the Dataset:**
     The dataset can be Accessed on Kaggle and also a simple synthetic data is generated.
