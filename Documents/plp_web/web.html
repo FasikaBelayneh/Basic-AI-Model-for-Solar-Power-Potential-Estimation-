@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        /* Basic Reset and Box-Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            /* Use Flexbox for the navigation items */
+            display: flex;
+            justify-content: center; /* Center the nav items horizontally */
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Spacing between nav items */
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #55aaff;
+        }
+
+        /* Main Content Grid Layout */
+        main {
+            padding: 20px;
+            max-width: 1200px; /* Optional: Limit max width of content */
+            margin: 20px auto; /* Center the main content area */
+        }
+
+        /* Use CSS Grid for the main content sections */
+        .content-grid {
+            display: grid;
+            /* Default layout for mobile: single column */
+            grid-template-columns: 1fr; /* One column taking up the available space */
+            gap: 20px; /* Spacing between grid items */
+        }
+
+        .content-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            margin-top: 0;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+
+        /* Tablet Layout (min-width: 768px) */
+        @media (min-width: 768px) {
+            /* Adjust navigation for tablet - maybe align left or space differently */
+            nav ul {
+                 justify-content: flex-start; /* Align nav items to the start */
+                 padding-left: 20px; /* Add some left padding */
+            }
+             nav ul li {
+                margin: 0 20px 0 0; /* Spacing between nav items */
+            }
+
+
+            /* Change Grid to 2 columns on tablet */
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+            }
+        }
+
+        /* Desktop Layout (min-width: 1024px) */
+        @media (min-width: 1024px) {
+             /* Navigation remains the same or can be further adjusted */
+             nav ul {
+                justify-content: center; /* Center nav items again for wider screens */
+                padding: 0;
+            }
+            nav ul li {
+                margin: 0 15px; /* Reset margin or adjust for desktop */
+            }
+
+
+            /* Change Grid to 3 columns on desktop */
+            .content-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+                gap: 30px; /* Increase gap for more spacing */
+            }
+
+            /* Optional: Make one section span two columns on desktop */
+            .content-section:first-child {
+                grid-column: span 2; /* Make the first section span two columns */
+            }
+        }
+
+        /* Optional: Styles for demonstration */
+        .content-section:nth-child(odd) {
+            background-color: #e9e9e9; /* Alternate background color */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Responsive Webpage</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-grid">
+            <section class="content-section">
+                <h2>Section 1</h2>
+                <p>This is the first content section. On smaller screens, this will take up the full width. On tablets, it might share a row, and on desktops, it could span multiple columns depending on the media query rules.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Section 2</h2>
+                <p>This section contains more content. Grid layout makes it easy to arrange these sections in different configurations based on the screen size without changing the HTML structure.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Section 3</h2>
+                <p>Another content block to demonstrate the grid layout. The `gap` property provides consistent spacing between all grid items automatically.</p>
+            </section>
+
+             <section class="content-section">
+                <h2>Section 4</h2>
+                <p>Adding a fourth section to better visualize the grid flow when the number of columns changes. Notice how the items reflow based on the defined grid template columns.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Responsive Layout Example</p>
+    </footer>
+
+</body>
+</html>

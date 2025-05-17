@@ -1,0 +1,6 @@
+data/
+*.csv
+.ipynb_checkpoints/
+.venv/
+!requirements.txt
+*.log
